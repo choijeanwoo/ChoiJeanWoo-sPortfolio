@@ -130,7 +130,7 @@ public class BattledataManager : MonoBehaviour
     }
 
     #region updateBM
-    public Vector2Int CoordinateToIndex(string coord)// 저장한 체스판의 위치 string을 vector2Int로 바꾸는 작업
+    public Vector2Int CoordinateToIndex(string coord)
     {
         string col = coord.Substring(1, 1);
         string rw = coord.Substring(0, 1);
@@ -141,12 +141,12 @@ public class BattledataManager : MonoBehaviour
         return new Vector2Int(x, y);
     }
 
-    public string IndexToCoordinate(Vector2Int location)//Vector2Int를 다시 string 좌표로 바꾸는 작업
+    public string IndexToCoordinate(Vector2Int location)
     {
         return row[7 - location.y] + column[location.x];
     }
 
-    public void AddTileInBoard(Vector2Int location, TileID tileID)//특정 좌표에 타일을 추가하는 작업
+    public void AddTileInBoard(Vector2Int location, TileID tileID)
     {
         string stringPos = IndexToCoordinate(location);
         if (CheckTileExist(BattleBoard[stringPos], tileID))
@@ -156,7 +156,7 @@ public class BattledataManager : MonoBehaviour
         BattleBoard[stringPos].TileID = tileID;
     }
 
-    public void AddUnitInBoard(Vector2Int location, UnitID unitID)//특정 좌표에 유닛을 추가하는 작업
+    public void AddUnitInBoard(Vector2Int location, UnitID unitID)
     {
         string stringPos = IndexToCoordinate(location);
         if (CheckObjectExist(BattleBoard[stringPos], unitID))
@@ -195,7 +195,7 @@ public class BattledataManager : MonoBehaviour
         return null;
     }
 
-    public void RemoveUnitInBoard(Vector2Int location, UnitID unitID)//특정 좌표에 있는 특정유닛을
+    public void RemoveUnitInBoard(Vector2Int location, UnitID unitID)
     {
         string stringPos = IndexToCoordinate(location);
         if(BattleBoard[stringPos] == null || BattleBoard[stringPos].UnitID == null)
@@ -215,7 +215,7 @@ public class BattledataManager : MonoBehaviour
     }
 
 
-    public void RemoveAll()//모든 요소 초기화 전체 게임이 종료되었을때만 호출
+    public void RemoveAll()
     {
         BattleBoard.Clear();
     }
@@ -230,13 +230,13 @@ public class BattledataManager : MonoBehaviour
         return v3;
     }
 
-    public void SetSelectedAvailablePos(List<string> availablePos) //이동 가능한 타일 등록
+    public void SetSelectedAvailablePos(List<string> availablePos)
     {
         selectAvailablePos.Clear();
         selectAvailablePos = new List<string>(availablePos);
     }
 
-    public bool CheckAvailablePos(Vector2Int pos) // 선택한 타일이 이동가능한지 체크하는 작업
+    public bool CheckAvailablePos(Vector2Int pos)
     {
         string stringPos = IndexToCoordinate(pos);
         if (selectAvailablePos.Contains(stringPos))
@@ -248,7 +248,7 @@ public class BattledataManager : MonoBehaviour
     }
 
     private SingleTile tempSingleTile;
-    public void SetMovableSingleTile(SingleTile singleTile) // 이동가능한 SingleTile에 대한 정보를 가져옴
+    public void SetMovableSingleTile(SingleTile singleTile)
     {
         tempSingleTile = null;
         tempSingleTile = singleTile;
