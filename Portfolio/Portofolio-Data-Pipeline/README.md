@@ -14,6 +14,7 @@
 - Google Sheet → JSON → Unity 런타임 데이터로 이어지는 데이터 파이프라인 핵심 로직
 - JSON 파싱 및 런타임 데이터 매핑 구조
 - 데이터 타입 확장을 고려한 자동 등록 및 관리 로직
+- Unity Localization 기반 비동기 문자열 로딩 및 UI 바인딩 구조 구현
 
 ---
 
